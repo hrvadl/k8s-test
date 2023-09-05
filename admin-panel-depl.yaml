@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-panel-deployment
+  labels:
+    app: admin-panel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-panel
+  template:
+    metadata:
+      labels:
+      app: admin-panel
+    containers:
+      - name: mongo-express
+        image: mongo-express
+        ports:
+          - containersPort: 8081
